@@ -1,4 +1,5 @@
-
+import nltk
+nltk.download('stopwords')
 import time
 from pyresparser import ResumeParser
 import streamlit as st
