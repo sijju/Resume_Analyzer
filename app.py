@@ -18,7 +18,7 @@ st.set_page_config(
     page_title="AI RESUME ANALYZER",
 )
 
-connection = pymysql.connect(host='localhost',user='root',password='sijjugaduji12A',db='resume')
+connection = pymysql.connect(host='127.0.0.1',user='root',password='sijjugaduji12A',db='resume')
 
 cursor = connection.cursor()
 
