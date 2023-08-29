@@ -4,7 +4,8 @@ from pdfminer3.pdfpage import PDFPage
 from pdfminer3.pdfinterp import PDFResourceManager
 from pdfminer3.pdfinterp import PDFPageInterpreter
 from pdfminer3.converter import TextConverter
-
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import CountVectorizer
 
 import base64
 import io
@@ -53,4 +54,13 @@ def course_recommender(course_list):
         st.markdown(f'({c})[{c_name}]({c_link})')
         rec_course.append(c_name)
     return rec_course
+
+def get_similarity(resume,jd):
+    res = ''.join([i for i in resume if not i.isdigit()])
+    res_jd = [res,jd]
+    cntv = CountVectorizer()
+    count_matrix = cntv.fit_transform(res_jd)
+    percentage = round((cosine_similarity(count_matrix)[0][1] *100),2)
+    return percentage
+
 

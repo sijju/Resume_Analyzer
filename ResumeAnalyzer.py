@@ -32,12 +32,9 @@ st.set_page_config(
 #     connection.commit()
 
 def run():
-    st.title("AI Resume Analyser")
-    
-    activities = ["User", "Admin"]
-    choice = st.sidebar.selectbox("Choose User:" ,activities)
-    link = '[Made with ❤️ by Karthik](https://github.com/sijju)'
-    st.sidebar.markdown(link, unsafe_allow_html=True)
+        st.title("AI Resume Analyser")
+        link = '[Made with ❤️ by Karthik](https://github.com/sijju)'
+        st.sidebar.markdown(link, unsafe_allow_html=True)
 
     # db_sql = """CREATE DATABASE IF NOT EXISTS resume"""
     # cursor.execute(db_sql)
@@ -65,7 +62,7 @@ def run():
     # cursor.execute(table_sql)
 
 
-    if choice == 'User':
+    
         st.markdown('<h5 style="text-align:center;color:#fd3456;">Upload Your Resume, and get smart analysis</h5>',unsafe_allow_html=True)
 
         pdf_file = st.file_uploader("Upload Your Resume",type=['pdf'])
