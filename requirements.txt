@@ -71,7 +71,7 @@ smart-open==5.2.1
 smmap==5.0.0
 sortedcontainers==2.4.0
 spacy==2.3.5
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.5/en_core_web_sm-2.3.5-py3-none-any.whl
+
 spacy-legacy==3.0.10
 spacy-loggers==1.0.3
 srsly==1.0.5
