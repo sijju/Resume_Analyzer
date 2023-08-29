@@ -18,18 +18,18 @@ st.set_page_config(
     page_title="AI RESUME ANALYZER",
 )
 
-connection = pymysql.connect(host='127.0.0.1',user='root',password='sijjugaduji12A',db='resume')
+# connection = pymysql.connect(host='127.0.0.1',user='root',password='sijjugaduji12A',db='resume')
 
-cursor = connection.cursor()
+# cursor = connection.cursor()
 
 
-def insert_data(name,email,res_score,timestamp,page_no,reco_field,cand_level,skills,recommended_skills,courses,pdf_name):
-    DB_TABLE_NAME = 'users_info'
-    insert_sql = "insert into"+DB_TABLE_NAME + """
-                  values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
-    rec_values = (name,email,str(res_score),timestamp,str(page_no),reco_field,cand_level,skills,recommended_skills,courses,pdf_name)
-    cursor.execute(insert_sql,rec_values)
-    connection.commit()
+# def insert_data(name,email,res_score,timestamp,page_no,reco_field,cand_level,skills,recommended_skills,courses,pdf_name):
+#     DB_TABLE_NAME = 'users_info'
+#     insert_sql = "insert into"+DB_TABLE_NAME + """
+#                   values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
+#     rec_values = (name,email,str(res_score),timestamp,str(page_no),reco_field,cand_level,skills,recommended_skills,courses,pdf_name)
+#     cursor.execute(insert_sql,rec_values)
+#     connection.commit()
 
 def run():
     st.title("AI Resume Analyser")
@@ -39,30 +39,30 @@ def run():
     link = '[Made with ❤️ by Karthik](https://github.com/sijju)'
     st.sidebar.markdown(link, unsafe_allow_html=True)
 
-    db_sql = """CREATE DATABASE IF NOT EXISTS resume"""
-    cursor.execute(db_sql)
+    # db_sql = """CREATE DATABASE IF NOT EXISTS resume"""
+    # cursor.execute(db_sql)
 
 
     #creating user_data table
 
-    DB_TABLE_NAME = 'users_info'
-    table_sql = "CREATE TABLE IF NOT EXISTS "+DB_TABLE_NAME + """
-                (ID INT NOT NULL AUTO_INCREMENT,
-                Name varchar(100) NOT NULL,
-                EMAIL_ID varchar(100) NOT NULL,
-                resume_score varchar(8) NOT NULL,
-                Timestamp varchar(100) NOT NULL,
-                Page_no varchar(5) NOT NULL,
-                Predicted_field BLOB NOT NULL,
-                User_level BLOB NOT NULL,
-                Skills BLOB NOT NULL,
-                Recommended_Skills BLOB NOT NULL,
-                Recommended_courses BLOB NOT NULL,
-                pdf_name varchar(50) NOT NULL,
-                PRIMARY KEY(ID)
-                );
-             """
-    cursor.execute(table_sql)
+    # DB_TABLE_NAME = 'users_info'
+    # table_sql = "CREATE TABLE IF NOT EXISTS "+DB_TABLE_NAME + """
+    #             (ID INT NOT NULL AUTO_INCREMENT,
+    #             Name varchar(100) NOT NULL,
+    #             EMAIL_ID varchar(100) NOT NULL,
+    #             resume_score varchar(8) NOT NULL,
+    #             Timestamp varchar(100) NOT NULL,
+    #             Page_no varchar(5) NOT NULL,
+    #             Predicted_field BLOB NOT NULL,
+    #             User_level BLOB NOT NULL,
+    #             Skills BLOB NOT NULL,
+    #             Recommended_Skills BLOB NOT NULL,
+    #             Recommended_courses BLOB NOT NULL,
+    #             pdf_name varchar(50) NOT NULL,
+    #             PRIMARY KEY(ID)
+    #             );
+    #          """
+    # cursor.execute(table_sql)
 
 
     if choice == 'User':
