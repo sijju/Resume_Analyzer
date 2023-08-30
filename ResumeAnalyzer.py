@@ -8,6 +8,14 @@ from streamlit_tags import st_tags
 from PIL import Image
 from Courses import ds_course,web_course,design_course,interview_videos,ios_course,android_course,resume_videos
 from utils import pdf_reader,show_pdf,get_csv_download_link,course_recommender
+import spacy
+
+nlp = spacy.load('en_core_web_sm')
+
+nlp.to_disk('models')
+
+nlp = spacy.load('models')
+
 from pyresparser import ResumeParser
 
 
