@@ -24,7 +24,7 @@ def run():
     if pdf_file is not None:
         with st.spinner('Uploading your resume ...'):
             time.sleep(2)
-        save_pdf_path = '\Uploaded_Resumes ' + pdf_file.name
+        save_pdf_path = 'Uploaded_Resumes ' + pdf_file.name
         with open(save_pdf_path,'wb') as f:
             f.write(pdf_file.getbuffer()) 
         resume_data = ResumeParser(save_pdf_path).get_extracted_data()

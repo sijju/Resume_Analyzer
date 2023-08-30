@@ -1,17 +1,18 @@
 import nltk
 nltk.download('stopwords')
-import spacy.cli
-spacy.cli.download('en_core_web_sm','--no-deps')
+
 import time
-from pyresparser import ResumeParser
 import streamlit as st
 import pymysql
 from streamlit_tags import st_tags
 from PIL import Image
 from Courses import ds_course,web_course,design_course,interview_videos,ios_course,android_course,resume_videos
 from utils import pdf_reader,show_pdf,get_csv_download_link,course_recommender
-import nltk
-nltk.download('stopwords')
+import spacy
+nlp = spacy.load('en_core_web_sm')
+nlp.to_disk('models')
+nlp = spacy.load('models')
+from pyresparser import ResumeParser
 
 
 
@@ -70,15 +71,16 @@ def run():
         pdf_file = st.file_uploader("Upload Your Resume",type=['pdf'])
 
         if pdf_file is not None:
+            
             with st.spinner('Uploading your resume...'):
                 time.sleep(2)
-            save_pdf_path = './Uploaded_Resumes' + pdf_file.name
-            with open(save_pdf_path,'wb') as f:
+            save_pdf = pdf_file.name
+            with open(save_pdf,'wb') as f:
                 f.write(pdf_file.getbuffer()) 
             
-            resume_data = ResumeParser(save_pdf_path).get_extracted_data()
+            resume_data = ResumeParser(save_pdf).get_extracted_data()
             if resume_data:
-                resume_text = pdf_reader(save_pdf_path)
+                resume_text = pdf_reader(save_pdf)
                 
                 
                 st.success('Hello ' + resume_data['name'])
