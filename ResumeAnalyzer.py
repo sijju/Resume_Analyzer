@@ -74,7 +74,7 @@ def run():
             
             with st.spinner('Uploading your resume...'):
                 time.sleep(2)
-            save_pdf = pdf_file.name
+            save_pdf = './Uploaded_resumes/' +  pdf_file.name
             with open(save_pdf,'wb') as f:
                 f.write(pdf_file.getbuffer()) 
             
